@@ -2,3 +2,4 @@ myvenv/*
 __pycache__/*
 *.pyc
 .idea/*
+*.json
