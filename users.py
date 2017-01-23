@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+import os
 import re, json
 import simplejson
+
 
 class User(object):
 
@@ -56,7 +58,10 @@ class TeamUserList(UserList):
     filename = 'telebot_users.json'
 
     def listOperators(filename):
-        lst = json.load(open(filename))
+        if os.path.getsize(filename) == 0:
+            lst = None
+            return lst
+        lst = simplejson.load(open(filename, 'r'))
         return lst
 
     def __init__(self):
